@@ -145,11 +145,17 @@ function createEvent(entry){
     else {
       icolor = 5;
     }
+
+    var remaining = ''; 
+    if (entry[12] != '#NUM!'){
+      remaining = '\n Remaining Days:'+entry[12];
+    }
     
    if (entry[9] == 'PROSES'){
       var result = myCalendar.createEvent(entry[2]+':'+entry[0],date_entry,date_entry,
               {description: ' Product:'+entry[0]+' \n Due date: <span style="color:'+icolor+';"> '
-              +date_entry+'</span> \n SPK:'+entry[2]+ '\n Merek:'+entry[10]+'\n STATUS:'+entry[9],     
+              +date_entry+'</span> \n SPK:'+entry[2]+ '\n Merek:'+entry[10]+'\n STATUS:'+entry[9]   
+              +remaining,     
               color:icolor}
               ).setColor(icolor);
       return 1 ;        
